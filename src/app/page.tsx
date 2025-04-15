@@ -52,6 +52,7 @@ export default function Home() {
                                    domain={data["domain"]}
                                    created_at={data["created_at"]}
                                    updated_at={data["updated_at"]}
+                                   dos_time={data["dos_time"]}
                                   />
                               )
                               }
