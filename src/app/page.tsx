@@ -13,40 +13,61 @@ export default function Home() {
   const [search, setSearch] = useState<string>("");
   const [items, setItems] = useState([])
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [totalPage, setTotalPage] = useState<number>(0);
+  const [totalItems, setTotalItems] = useState<number>(0);
   const [id, setId] = useState<string>("")
 
   useEffect(() => {
     async function getAllListData() {
-        try {
-          const response = await fetch('http://localhost:5000/api/phishing')
-
-          if(!response.ok) {
-            throw new Error("Failed get list data")
-          }
-          const data = await response.json();
-          setItems(data.data)
-        } catch(error) {
-          console.log("Get Data error :", error)
-        }
+      try {
+        const response = await fetch(`http://localhost:5000/api/phishing?page=${page}&limit=10`);
+        if (!response.ok) throw new Error("Failed get list data");
+  
+        const data = await response.json();
+        setItems(data.data);
+        setTotalPage(data.pagination.totalPages);
+        setTotalItems(data.pagination.totalItems);
+      } catch (error) {
+        console.log("Get Data error :", error);
+      }
     }
-
+  
     getAllListData();
-  }, []);
+  }, [page]);
+  
 
   async function handleSearchByKeyword(event: FormEvent<HTMLFormElement>) {
-       event.preventDefault();
-
-       try {
-        const response = await fetch(`http://localhost:5000/api/search?keyword=${encodeURIComponent(search)}`);
-        if (!response.ok) {
-          throw new Error("Search failed");
-        }
-    
-        const data = await response.json();
-        setItems(data.data); 
-      } catch (error) {
-        console.error("Search error:", error);
+    event.preventDefault();
+    setPage(1);
+  
+    try {
+      const response = await fetch(`http://localhost:5000/api/search?keyword=${encodeURIComponent(search)}`);
+      if (!response.ok) {
+        throw new Error("Search failed");
       }
+  
+      const data = await response.json();
+      setItems(data.data); 
+      setTotalItems(data.data.length);
+      setTotalPage(1); // since search results may not have paginated data
+    } catch (error) {
+      console.error("Search error:", error);
+    }
+  }
+
+  async function nextPage(num:number) {
+     if(page < totalPage) {
+        setPage(page+num)
+        
+     }
+     return;
+  }
+
+  async function prevPage(num:number){
+     if(page > 1) {
+        setPage(page-num)
+     } 
+     return 
   }
 
   async function editDataById(id:string) {
@@ -83,8 +104,6 @@ export default function Home() {
             <div className="flex flex-column">
               <Sidebar />
               <div className="w-full">
-                  <Header />
-
                   <main className="md:px-2 mt-4 mx-2">
                     <div className="container mx-auto md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">
                          <div className="flex">
@@ -115,12 +134,35 @@ export default function Home() {
                             onDelete={deleteDataById}
                             onEdit={editDataById}
                           />
-                          <div className="float-right my-5">
-                            <div className="flex text-sm">
-                                <button className="mx-3">prev</button>
-                                <button className="mx-3">next</button>
-                            </div>
+                          <div className="flex justify-between items-center my-5">
+                        <p className="text-slate-500">
+                          Showing page <b>{page}</b> of <b>{totalPage}</b> — Total: <b>{totalItems}</b> phishing links
+                        </p>
+
+                          <div className="flex gap-2">
+                            {/* Previous Button */}
+                            <button
+                              onClick={() => setPage(page - 1)}
+                              disabled={page === 1}
+                              className={`px-3 py-1 rounded ${
+                                page === 1 ? "bg-sky-950 text-white cursor-not-allowed" : "bg-sky-600 text-white"
+                              }`}
+                            >
+                              Prev
+                            </button>
+
+                            {/* Next Button */}
+                            <button
+                              onClick={() => setPage(page + 1)}
+                              disabled={page === totalPage}
+                              className={`px-3 py-1 rounded ${
+                                page === totalPage ? "bg-sky-950 text-white cursor-not-allowed" : "bg-sky-600 text-white"
+                              }`}
+                            >
+                              Next
+                            </button>
                           </div>
+                        </div>
                     </div>
                   </main>
               </div>

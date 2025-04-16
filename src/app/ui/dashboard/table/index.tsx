@@ -1,14 +1,18 @@
 import ListTable from "../listtable";
 
 type ListPhising = {
-    index:number,
     id:string,
-    name:string,
-    url:string,
-    domain:string,
-    created_at:string,
-    updated_at:string,
-    dos_time:string
+    url:string, 
+    registrar_reported:string,  
+    registrar_resolved:string,  
+    safebrowsing_reported:string,  
+    safebrowsing_resolved:string, 
+    takedown_reported:string,  
+    takedown_resolved:string,  
+    ddos_reported:string,  
+    ddos_resolved:string,  
+    komdigi_reported:string,  
+    komdigi_resolved:string,  
 }
 
 interface TableProps {
@@ -21,21 +25,30 @@ export default function Table(
 { items, onEdit, onDelete}: TableProps
 ){
     return (
-        <table className="table-auto mt-4 text-center w-full">
-            <thead className="border-b-1 border-gray-500 py-4 dark:text-white">
-                    <tr className="text-sm">
-                    <th className="w-4 pb-2">No</th>
-                    <th className="w-24 pb-2">Title</th>
-                    <th className="w-24 pb-2">Url</th>
-                    <th className="w-10 pb-2">Domain</th>
-                    <th className="w-16 pb-2">Created At</th>
-                    <th className="w-16 pb-2">Updated At</th>
-                    <th className="w-16 pb-2">Dos Time</th>
-                    <th className="w-2 pb-2">Action</th>
-                    </tr>
-            </thead>
-            
+        <table className="table-auto mt-4 text-center w-full text-xs">
             <tbody className="text-sm">
+            <tr className="font-normal">
+                <th rowSpan={2} className="px-4 py-2 font-medium">Phishing URL</th>
+                <th colSpan={2} className="px-4 py-2 font-medium border-b-1 border-gray-500">Report Registrar</th>
+                <th colSpan={2} className="px-4 py-2 font-medium border-b-1 border-gray-500">Safebrowsing</th>
+                <th colSpan={2} className="px-4 py-2 font-medium border-b-1 border-gray-500">Takedown Provider</th>
+                <th colSpan={2} className="px-4 py-2 font-medium border-b-1 border-gray-500">DDoS</th>
+                <th colSpan={2} className="px-4 py-2 font-medium border-b-1 border-gray-500">Komdigi</th>
+                <th colSpan={2} rowSpan={2} className="px-4 py-2">Action</th>
+            </tr>
+            <tr className="border-b-1 border-gray-500">
+                <th className="px-4 py-2">Reported</th>
+                <th className="px-4 py-2">Resolved</th>
+                <th className="px-4 py-2">Reported</th>
+                <th className="px-4 py-2">Resolved</th>
+                <th className="px-4 py-2">Reported</th>
+                <th className="px-4 py-2">Resolved</th>
+                <th className="px-4 py-2">Reported</th>
+                <th className="px-4 py-2">Resolved</th>
+                <th className="px-4 py-2">Reported</th>
+                <th className="px-4 py-2">Resolved</th>
+            </tr>
+            
                 {
                     items.map((data, i)=> 
                         <ListTable

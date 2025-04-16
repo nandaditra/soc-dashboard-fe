@@ -4,12 +4,17 @@ import trash from "../../../../../public/trash-solid (1).svg"
 
 type DataTable = {
     id:string,
-    name:string,
-    url:string,
-    domain:string,
-    created_at:string,
-    updated_at:string,
-    dos_time:string
+    url:string, 
+    registrar_reported:string,  
+    registrar_resolved:string,  
+    safebrowsing_reported:string,  
+    safebrowsing_resolved:string, 
+    takedown_reported:string,  
+    takedown_resolved:string,  
+    ddos_reported:string,  
+    ddos_resolved:string,  
+    komdigi_reported:string,  
+    komdigi_resolved:string,  
 }
 
 
@@ -21,7 +26,6 @@ interface ListTableProps {
 }
 
 export default function ListTable({
-   index, 
    phishing, 
    editDataById, 
    deleteDataById  
@@ -40,16 +44,42 @@ export default function ListTable({
         const formatted = `${yyyy}-${mm}-${dd} ${hh}:${min}`;
         return formatted
     }
+
+    function formatTimestamp(datetime: string): string {
+        const date = new Date(datetime);
+      
+        // Adjust to your timezone if needed (example: GMT+7 for Jakarta)
+        const options: Intl.DateTimeFormatOptions = {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+          timeZone: "Asia/Jakarta", 
+        };
+      
+        const formatted = new Intl.DateTimeFormat("en-GB", options).format(date);
+    
+        const [day, month, yearAndTime] = formatted.split("/");
+        const [year, time] = yearAndTime.split(", ");
+      
+        return `${year}-${month}-${day} ${time}`;
+      }
     
     return (
         <tr key={phishing.id} className="border-b-1 border-gray-500">
-             <td className="py-2 dark:text-white">{index+1}</td>
-             <td className="py-2 dark:text-white">{phishing.name}</td>
-             <td className="py-2 text-gray-500">{phishing.url}</td>
-             <td className="py-2 text-gray-500">{phishing.domain}</td>
-             <td className="py-2 text-gray-500">{formatTime(phishing.created_at)}</td>
-             <td className="py-2 text-gray-500">{formatTime(phishing.updated_at)}</td>
-             <td className="py-2 text-gray-500">{formatTime(phishing.dos_time)}</td>
+             <td className="py-2 dark:text-white text-xs font-normal">{phishing.url}</td>
+             <td className="py-2 text-gray-500">{phishing.registrar_reported}</td>
+             <td className="py-2 text-gray-500">{phishing.registrar_resolved}</td>
+             <td className="py-2 text-gray-500">{phishing.safebrowsing_reported}</td>
+             <td className="py-2 text-gray-500">{phishing.safebrowsing_resolved}</td>
+             <td className="py-2 text-gray-500">{phishing.takedown_reported}</td>
+             <td className="py-2 text-gray-500">{phishing.takedown_resolved}</td>
+             <td className="py-2 text-gray-500">{phishing.ddos_reported}</td>
+             <td className="py-2 text-gray-500">{phishing.ddos_resolved}</td>
+             <td className="py-2 text-gray-500">{phishing.komdigi_reported}</td>
+             <td className="py-2 text-gray-500">{phishing.komdigi_resolved}</td>
              <td className="py-2 text-gray-500 flex items-center flex-wrap">
                 <Image 
                    src={edit} 
