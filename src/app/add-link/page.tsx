@@ -52,7 +52,7 @@ export default function AddLink() {
           <main className="">
              <div className="flex flex-column">
                <Sidebar />
-               <div  className="w-5/6">
+               <div className="w-full">
                    <Header />
                    <main className="md:px-4 mt-4">
                       <div className="container mx-auto md:px-16 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">

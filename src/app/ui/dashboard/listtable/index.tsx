@@ -1,5 +1,9 @@
-interface DataTable {
-    id:number,
+import Image from "next/image";
+import edit from "../../../../../public/pen-to-square-solid (1).svg"
+import trash from "../../../../../public/trash-solid (1).svg"
+
+type DataTable = {
+    id:string,
     name:string,
     url:string,
     domain:string,
@@ -8,15 +12,20 @@ interface DataTable {
     dos_time:string
 }
 
+
+interface ListTableProps {
+   index:number,
+   phishing: DataTable,
+   editDataById: (id: string) => void;
+   deleteDataById: (id:string) => void;
+}
+
 export default function ListTable({
-    id, 
-    name, 
-    url,
-    domain,
-    created_at,
-    updated_at,
-    dos_time,       
-}:DataTable) {
+   index, 
+   phishing, 
+   editDataById, 
+   deleteDataById  
+}:ListTableProps) {
 
     function formatTime(time:string) {
         const date = new Date(time);
@@ -34,16 +43,61 @@ export default function ListTable({
         const formatted = `${yyyy}-${mm}-${dd} ${hh}:${min}`;
         return formatted
     }
+
+    // async function editDataById(id:number) {
+         
+    // }
+
+    console.log(phishing)
+
+    // async function deleteDataById(id:number) {
+    //     const confirmDelete = window.confirm("Are you sure you want to delete this data?");
+    //     if (!confirmDelete) return;
+    //     try {
+    //       const response = await fetch(process.env.BACKEND_URL+`/api/phishing/${id}`, {
+    //         method: "DELETE",
+    //       });
+      
+    //       if (!response.ok) {
+    //         throw new Error("Failed to delete data.");
+    //       }
+    
+    //       alert("Data deleted successfully!");
+    //       // Optionally: refresh the list of data after deletion
+    //       window.location.reload();
+    //     } catch (error) {
+    //       console.error("Error deleting data:", error);
+    //       alert("Failed to delete data.");
+    //     }
+    // }
     
     return (
-        <tr key={id} className="border-b-1 border-gray-500">
-             <td className="py-2 dark:text-white">{id+1}</td>
-             <td className="py-2 dark:text-white">{name}</td>
-             <td className="py-2 text-gray-500">{url}</td>
-             <td className="py-2 text-gray-500">{domain}</td>
-             <td className="py-2 text-gray-500">{formatTime(created_at)}</td>
-             <td className="py-2 text-gray-500">{formatTime(updated_at)}</td>
-             <td className="py-2 text-gray-500">{formatTime(dos_time)}</td>
+        <tr key={phishing.id} className="border-b-1 border-gray-500">
+             <td className="py-2 dark:text-white">{index+1}</td>
+             <td className="py-2 dark:text-white">{phishing.name}</td>
+             <td className="py-2 text-gray-500">{phishing.url}</td>
+             <td className="py-2 text-gray-500">{phishing.domain}</td>
+             <td className="py-2 text-gray-500">{formatTime(phishing.created_at)}</td>
+             <td className="py-2 text-gray-500">{formatTime(phishing.updated_at)}</td>
+             <td className="py-2 text-gray-500">{formatTime(phishing.dos_time)}</td>
+             <td className="py-2 text-gray-500 flex items-center flex-wrap">
+                <Image 
+                   src={edit} 
+                   width={15} 
+                   height={15} 
+                   alt="edit file"
+                   className="mx-auto"
+                   onClick={()=>editDataById(phishing.id)}
+                   />
+                <Image 
+                   src={trash} 
+                   width={15} 
+                   height={15} 
+                   alt="delete file"
+                   className="mx-auto"
+                   onClick={()=> deleteDataById(phishing.id)}
+                   />
+            </td>
         </tr> 
     )
 }
