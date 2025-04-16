@@ -91,7 +91,7 @@ export default function AddLink() {
                                  <input 
                                     name="created_at" 
                                     type="datetime-local"
-                                    className="border rounded-md w-full p-2 text-white"
+                                    className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
                                     onChange={(e) => setCreatedAt(e.target.value)}
                                     />
                              </div>
@@ -100,7 +100,7 @@ export default function AddLink() {
                                  <input 
                                     name="updated_at" 
                                     type="datetime-local"
-                                    className="border rounded-md w-full p-2 text-white"
+                                    className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
                                     onChange={(e) => setUpdateAt(e.target.value)}
                                     />
                              </div>
@@ -109,7 +109,7 @@ export default function AddLink() {
                                  <input 
                                     name="dos_time" 
                                     type="datetime-local"
-                                    className="border rounded-md w-full p-2 text-white"
+                                    className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
                                     onChange={(e) => setDosTime(e.target.value)}
                                     />
                              </div>

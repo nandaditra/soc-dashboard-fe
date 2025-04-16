@@ -84,7 +84,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
     return (
       <div className="absolute rounded-md flex items-center justify-center top-0 h-screen w-screen">
         <div className="absolute bg-black opacity-50 h-screen w-screen"></div>
-        <div className="absolute bg-slate-900 w-2/5 my-auto items-center justify-center block z-40 p-10 rounded-md">
+        <div className="absolute bg-slate-900 w-xl my-auto items-center justify-center block z-40 p-10 rounded-md">
           <h1 className="text-center font-bold text-xl text-white">Update Data</h1>
           <form onSubmit={updateDataById} className="mt-6">
             <div className="my-3">
@@ -122,7 +122,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
               <input
                 name="created_at"
                 type="datetime-local"
-                className="border rounded-md w-full p-2 text-white"
+                className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
                 value={createdAt}
                 onChange={(e) => setCreatedAt(e.target.value)}
               />
@@ -132,7 +132,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
               <input
                 name="updated_at"
                 type="datetime-local"
-                className="border rounded-md w-full p-2 text-white"
+                className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
                 value={updatedAt}
                 onChange={(e) => setUpdateAt(e.target.value)}
               />
@@ -142,7 +142,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
               <input
                 name="dos_time"
                 type="datetime-local"
-                className="border rounded-md w-full p-2 text-white"
+                className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
                 value={dostime}
                 onChange={(e) => setDosTime(e.target.value)}
               />
