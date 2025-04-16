@@ -50,11 +50,10 @@ export default function Home() {
   }
 
   async function editDataById(id:string) {
-    // if(id) {
-    //   setIsOpen(true)
-    //   setId(id)
-    // }
-    // return;
+    if(id) {
+      setIsOpen(true)
+      setId(id)
+    }
   }
 
   async function deleteDataById(id:string) {
@@ -128,7 +127,7 @@ export default function Home() {
             </div>
        </main>
 
-       {/* <Edit isOpen={isOpen} onEditData={editDataById}/> */}
+       <Edit isOpen={isOpen} phishingId={id}/>
     </div>
   );
 }

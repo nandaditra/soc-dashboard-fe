@@ -30,10 +30,7 @@ export default function ListTable({
     function formatTime(time:string) {
         const date = new Date(time);
         
-        // Convert to GMT+7
         date.setHours(date.getHours() + 7);
-        
-        // Format to YYYY-MM-DD HH:mm:ss
         const yyyy = date.getFullYear();
         const mm = String(date.getMonth() + 1).padStart(2, '0');
         const dd = String(date.getDate()).padStart(2, '0');
@@ -43,33 +40,6 @@ export default function ListTable({
         const formatted = `${yyyy}-${mm}-${dd} ${hh}:${min}`;
         return formatted
     }
-
-    // async function editDataById(id:number) {
-         
-    // }
-
-    console.log(phishing)
-
-    // async function deleteDataById(id:number) {
-    //     const confirmDelete = window.confirm("Are you sure you want to delete this data?");
-    //     if (!confirmDelete) return;
-    //     try {
-    //       const response = await fetch(process.env.BACKEND_URL+`/api/phishing/${id}`, {
-    //         method: "DELETE",
-    //       });
-      
-    //       if (!response.ok) {
-    //         throw new Error("Failed to delete data.");
-    //       }
-    
-    //       alert("Data deleted successfully!");
-    //       // Optionally: refresh the list of data after deletion
-    //       window.location.reload();
-    //     } catch (error) {
-    //       console.error("Error deleting data:", error);
-    //       alert("Failed to delete data.");
-    //     }
-    // }
     
     return (
         <tr key={phishing.id} className="border-b-1 border-gray-500">
