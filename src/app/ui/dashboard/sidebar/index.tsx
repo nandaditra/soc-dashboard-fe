@@ -36,7 +36,7 @@ export default function Sidebar(){
                                 alt="Home Logo"
                                 className="mx-2"
                             />
-                           <span className="invisible lg:visible">Data</span>
+                           <span className="invisible lg:visible">Add</span>
                         </button>
                     </Link>
                 </div>
