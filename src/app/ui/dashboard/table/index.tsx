@@ -1,5 +1,6 @@
 import ListTable from "../listtable";
 import "./design.css"
+import TableHead from "./tablehead";
 
 type ListPhising = {
     id:string,
@@ -28,39 +29,39 @@ export default function Table(
     return (
         <div className="overflow-auto max-h-[600px] scrollbarr">
             <table className="min-w-[1200px] mt-4 table-auto text-center border-collapse w-full">
-                <thead className="text-xs sticky top-0">
-                    <tr className="font-normal bg-slate-950 dark:bg-gray-800">
-                        <th rowSpan={2} className="px-4 py-2 font-bold whitespace-nowrap w-72 border-1 border-gray-500">Phishing URL</th>
-                        <th colSpan={2} className="px-4 py-2 font-bold border-1 border-gray-500 ">Report Registrar</th>
-                        <th colSpan={2} className="px-4 py-2 font-bold border-1 border-gray-500">Safebrowsing</th>
-                        <th colSpan={2} className="px-4 py-2 font-bold border-1 border-gray-500">Takedown Provider</th>
-                        <th colSpan={2} className="px-4 py-2 font-bold border-1 border-gray-500">DDoS</th>
-                        <th colSpan={2} className="px-4 py-2 font-bold border-1 border-gray-500">Komdigi</th>
-                        <th rowSpan={2} colSpan={2} className="px-4 py-2 border-1 border-gray-500">Action</th>
+                <thead className="text-xs sticky top-0 rounded-t-lg">
+                    <tr className="dark:bg-gray-800">
+                        <TableHead row={2} width={"w-2/5"} col={1} content={"Phishing URL"}/>
+                        <TableHead row={1} width={""} col={2} content={"Report Registrar"}/>
+                        <TableHead row={1} width={""} col={2} content={"Safebrowsing"}/>
+                        <TableHead row={1} width={""} col={2} content={"Takedown Provider"}/>
+                        <TableHead row={1} width={""} col={2} content={"DDoS"}/>
+                        <TableHead row={1} width={""} col={2} content={"Komdigi"}/>
+                        <TableHead row={2} width={""} col={2} content={"Action"}/>
                     </tr>
-                    <tr className="border-b border-gray-500 dark:bg-gray-800">
-                        <th className="px-4 py-2 border-1 border-gray-500 font-bold">Reported</th>
-                        <th className="px-4 py-2 border-1 border-gray-500 font-bold">Resolved</th>
-                        <th className="px-4 py-2 border-1 border-gray-500 font-bold">Reported</th>
-                        <th className="px-4 py-2 border-1 border-gray-500 font-bold">Resolved</th>
-                        <th className="px-4 py-2 border-1 border-gray-500 font-bold">Reported</th>
-                        <th className="px-4 py-2 border-1 border-gray-500 font-bold">Resolved</th>
-                        <th className="px-4 py-2 border-1 border-gray-500 font-bold">Reported</th>
-                        <th className="px-4 py-2 border-1 border-gray-500 font-bold">Resolved</th>
-                        <th className="px-4 py-2 border-1 border-gray-500 font-bold">Reported</th>
-                        <th className="px-4 py-2 border-1 border-gray-500 font-bold">Resolved</th>
+                    <tr className="dark:bg-gray-800">
+                        <TableHead row={1} width={""} col={1} content={"Reported"}/>
+                        <TableHead row={1} width={""} col={1} content={"Resolved"}/>
+                        <TableHead row={1} width={""} col={1} content={"Reported"}/>
+                        <TableHead row={1} width={""} col={1} content={"Resolved"}/>
+                        <TableHead row={1} width={""} col={1} content={"Reported"}/>
+                        <TableHead row={1} width={""} col={1} content={"Resolved"}/>
+                        <TableHead row={1} width={""} col={1} content={"Reported"}/>
+                        <TableHead row={1} width={""} col={1} content={"Resolved"}/>
+                        <TableHead row={1} width={""} col={1} content={"Reported"}/>
+                        <TableHead row={1} width={""} col={1} content={"Resolved"}/>
                     </tr>
                 </thead>
                 <tbody className="text-sm pt-20">
-                {items.map((data, i) => (
-                    <ListTable
-                    key={i}
-                    index={i}
-                    phishing={data}
-                    editDataById={onEdit}
-                    deleteDataById={onDelete}
-                    />
-                ))}
+                    {items.map((data, i) => (
+                        <ListTable
+                        key={i}
+                        index={i}
+                        phishing={data}
+                        editDataById={onEdit}
+                        deleteDataById={onDelete}
+                        />
+                    ))}
                 </tbody>
             </table>
             </div>
