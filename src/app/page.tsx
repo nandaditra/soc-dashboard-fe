@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState, FormEvent, } from "react";
-import Header from "./ui/header";
 import Sidebar from "./ui/dashboard/sidebar";
 import Image from "next/image";
 import glass from "../../public/magnifying-glass-solid.svg"
@@ -55,21 +54,6 @@ export default function Home() {
     }
   }
 
-  async function nextPage(num:number) {
-     if(page < totalPage) {
-        setPage(page+num)
-        
-     }
-     return;
-  }
-
-  async function prevPage(num:number){
-     if(page > 1) {
-        setPage(page-num)
-     } 
-     return 
-  }
-
   async function editDataById(id:string) {
     if(id) {
       setIsOpen(true)
@@ -90,7 +74,6 @@ export default function Home() {
       }
 
       alert("Data deleted successfully!");
-      // Optionally: refresh the list of data after deletion
       window.location.reload();
     } catch (error) {
       console.error("Error deleting data:", error);
@@ -103,20 +86,20 @@ export default function Home() {
        <main className="">
             <div className="flex flex-column">
               <Sidebar />
-              <div className="w-full">
-                  <main className="md:px-2 mt-4 mx-2">
-                    <div className="container mx-auto md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">
+              <div className="h-screen w-full block">
+                  <div className="md:px-2 mt-4">
+                    <div className="md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">
                          <div className="flex">
                              <div className="mr-auto">
                                  <h1 className="text-black font-bold text-2xl mt-5 dark:text-white">Dashboard</h1>
                                  <p className="text-slate-500">List all the phising link</p>
                              </div>
-                             <form onSubmit={handleSearchByKeyword} className="ml-auto rounded-full w-75">
+                             <form onSubmit={handleSearchByKeyword} className="ml-auto rounded-full w-100">
                                  <div className="flex mt-4 border border-1 border-white rounded-full w-full py-1">
                                     <input 
                                        name="search" 
                                        type="text"
-                                       className="focus:outline-none border-none w-full px-3 text-white py-1"
+                                       className="focus:outline-none bg-none rounded-full border-none w-full px-3 text-white py-1"
                                        onChange={(e) => setSearch(e.target.value)}
                                      />
                                      <Image
@@ -129,18 +112,20 @@ export default function Home() {
                                  </div>
                                 </form>
                           </div>
-                          <Table 
-                            items={items} 
-                            onDelete={deleteDataById}
-                            onEdit={editDataById}
-                          />
+                          <div className="w-full">
+                           <Table 
+                             items={items} 
+                             onDelete={deleteDataById}
+                             onEdit={editDataById}
+                           />
+                          </div>
                           <div className="flex justify-between items-center my-5">
                         <p className="text-slate-500">
                           Showing page <b>{page}</b> of <b>{totalPage}</b> — Total: <b>{totalItems}</b> phishing links
                         </p>
 
                           <div className="flex gap-2">
-                            {/* Previous Button */}
+                          
                             <button
                               onClick={() => setPage(page - 1)}
                               disabled={page === 1}
@@ -151,7 +136,6 @@ export default function Home() {
                               Prev
                             </button>
 
-                            {/* Next Button */}
                             <button
                               onClick={() => setPage(page + 1)}
                               disabled={page === totalPage}
@@ -164,7 +148,7 @@ export default function Home() {
                           </div>
                         </div>
                     </div>
-                  </main>
+                  </div>
               </div>
             </div>
        </main>

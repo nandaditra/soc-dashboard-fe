@@ -34,59 +34,37 @@ export default function ListTable({
     function formatTime(time:string) {
         const date = new Date(time);
         
-        date.setHours(date.getHours() + 7);
-        const yyyy = date.getFullYear();
+        date.setHours(date.getHours());
+        const yyyy = String(date.getFullYear()).substring(2,4);
         const mm = String(date.getMonth() + 1).padStart(2, '0');
         const dd = String(date.getDate()).padStart(2, '0');
         const hh = String(date.getHours()).padStart(2, '0');
         const min = String(date.getMinutes()).padStart(2, '0');
         
-        const formatted = `${yyyy}-${mm}-${dd} ${hh}:${min}`;
+        const formatted = `${dd}/${mm}/${yyyy} ${hh}:${min}`;
         return formatted
     }
-
-    function formatTimestamp(datetime: string): string {
-        const date = new Date(datetime);
-      
-        // Adjust to your timezone if needed (example: GMT+7 for Jakarta)
-        const options: Intl.DateTimeFormatOptions = {
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-          timeZone: "Asia/Jakarta", 
-        };
-      
-        const formatted = new Intl.DateTimeFormat("en-GB", options).format(date);
-    
-        const [day, month, yearAndTime] = formatted.split("/");
-        const [year, time] = yearAndTime.split(", ");
-      
-        return `${year}-${month}-${day} ${time}`;
-      }
     
     return (
-        <tr key={phishing.id} className="border-b-1 border-gray-500">
-             <td className="py-2 dark:text-white text-xs font-normal">{phishing.url}</td>
-             <td className="py-2 text-gray-500">{phishing.registrar_reported}</td>
-             <td className="py-2 text-gray-500">{phishing.registrar_resolved}</td>
-             <td className="py-2 text-gray-500">{phishing.safebrowsing_reported}</td>
-             <td className="py-2 text-gray-500">{phishing.safebrowsing_resolved}</td>
-             <td className="py-2 text-gray-500">{phishing.takedown_reported}</td>
-             <td className="py-2 text-gray-500">{phishing.takedown_resolved}</td>
-             <td className="py-2 text-gray-500">{phishing.ddos_reported}</td>
-             <td className="py-2 text-gray-500">{phishing.ddos_resolved}</td>
-             <td className="py-2 text-gray-500">{phishing.komdigi_reported}</td>
-             <td className="py-2 text-gray-500">{phishing.komdigi_resolved}</td>
-             <td className="py-2 text-gray-500 flex items-center flex-wrap">
+        <tr key={phishing.id} className="border-b-1 border-gray-500 gap-4">
+             <td className="py-2 dark:text-white text-sm font-normal w-full">{phishing.url}</td>
+             <td className="py-2 text-gray-500 text-sm">{phishing.registrar_reported ? formatTime(phishing.registrar_reported) : ""}</td>
+             <td className="py-2 text-gray-500 text-sm">{phishing.registrar_resolved ? formatTime(phishing.registrar_resolved) : ""}</td>
+             <td className="py-2 text-gray-500 text-sm">{phishing.safebrowsing_reported ? formatTime(phishing.safebrowsing_reported): ""}</td>
+             <td className="py-2 text-gray-500 text-sm">{phishing.safebrowsing_resolved ? formatTime(phishing.safebrowsing_resolved): ""}</td>
+             <td className="py-2 text-gray-500 text-sm">{phishing.takedown_reported ? formatTime(phishing.takedown_reported): ""}</td>
+             <td className="py-2 text-gray-500 text-sm">{phishing.takedown_resolved ? formatTime(phishing.takedown_resolved): ""}</td>
+             <td className="py-2 text-gray-500 text-sm">{phishing.ddos_reported ? formatTime(phishing.ddos_reported): ""}</td>
+             <td className="py-2 text-gray-500 text-sm">{phishing.ddos_resolved ? formatTime(phishing.ddos_resolved): ""}</td>
+             <td className="py-2 text-gray-500 text-sm">{phishing.komdigi_reported ? formatTime(phishing.komdigi_reported): ""}</td>
+             <td className="py-2 text-gray-500 text-sm">{phishing.komdigi_resolved ? formatTime(phishing.komdigi_resolved): ""}</td>
+             <td className="py-2 text-gray-500 text-sm flex items-center justify-center flex-wrap">
                 <Image 
                    src={edit} 
                    width={15} 
                    height={15} 
                    alt="edit file"
-                   className="mx-auto"
+                   className="m-auto object-center"
                    onClick={()=>editDataById(phishing.id)}
                    />
                 <Image 
@@ -94,7 +72,7 @@ export default function ListTable({
                    width={15} 
                    height={15} 
                    alt="delete file"
-                   className="mx-auto"
+                   className="m-auto object-center"
                    onClick={()=> deleteDataById(phishing.id)}
                    />
             </td>

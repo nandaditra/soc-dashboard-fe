@@ -2,27 +2,36 @@
 
 import { FormEvent, useState } from "react"
 import Sidebar from "../ui/dashboard/sidebar"
-import Header from "../ui/header"
 
 export default function AddLink() {
-    const [name, setName] = useState<string>("")
     const [url, setUrl] = useState<string>("")
-    const [domain, setDomain] = useState<string>("")
-    const [createdAt, setCreatedAt] = useState<string>("")
-    const [updatedAt, setUpdateAt] = useState<string>("")
-    const [dostime, setDosTime] = useState<string>("")
     const [isLoading, setIsLoading] = useState<boolean>(false);
-
+    const [registrar_reported, setRegistrarReported] = useState<string>("");
+    const [registrar_resolved, setRegistrarResolved] = useState<string>("");
+    const [safebrowsing_reported, setSafebrowsingReported] = useState<string>("");
+    const [safebrowsing_resolved, setSafebrowsingResolved] = useState<string>("");
+    const [takedown_reported, setTakedownReported] = useState<string>("");
+    const [takedown_resolved, setTakedownResolved] = useState<string>("");
+    const [ddos_reported, setDdosReported] = useState<string>("");
+    const [ddos_resolved, setDdosResolved] = useState<string>("");
+    const [komdigi_reported, setKomdigiReported] = useState<string>("");
+    const [komdigi_resolved, setKomdigiResolved] = useState<string>("");
+    
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
          event.preventDefault()
 
          const formData = {
-          name,
           url,
-          domain,
-          createdAt,
-          updatedAt,
-          dostime
+          registrar_reported,  
+          registrar_resolved,  
+          safebrowsing_reported,  
+          safebrowsing_resolved, 
+          takedown_reported,  
+          takedown_resolved,  
+          ddos_reported,  
+          ddos_resolved,  
+          komdigi_reported,  
+          komdigi_resolved,  
         };
 
         const response = await fetch('http://localhost:5000/api/phishing', {
@@ -39,12 +48,16 @@ export default function AddLink() {
          }
 
         setIsLoading(false);
-
-        setName("");
-        setUrl("");
-        setDomain("");
-        setCreatedAt("");
-        setUpdateAt("");
+        setRegistrarReported("");
+        setRegistrarResolved("");
+        setSafebrowsingReported("");
+        setSafebrowsingResolved("");
+        setTakedownReported("");
+        setTakedownResolved("");
+        setDdosReported("");
+        setDdosResolved("");
+        setKomdigiReported("");
+        setKomdigiResolved("");
     }
    
     return (
@@ -53,66 +66,148 @@ export default function AddLink() {
              <div className="flex flex-column">
                <Sidebar />
                <div className="w-full">
-                   <Header />
                    <main className="md:px-4 mt-4">
-                      <div className="container mx-auto md:px-16 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">
+                      <div className="container mx-auto md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">
                          <h1 className="text-black font-bold text-2xl mt-3 dark:text-white">Add Link</h1>
                          <p className="text-slate-500">Add the phising link</p>
                          <form onSubmit={handleSubmit} className="mt-6">
                              <div className="my-3">
-                                 <label className="text-md dark:text-white">Name</label><br/>
-                                 <input 
-                                   name="name" 
-                                   type="text" 
-                                   className="border rounded-md w-full p-2"
-                                   onChange={(e) => setName(e.target.value)}
-                                   />
-                             </div>
-                             <div className="my-3">
-                                 <label className="text-md dark:text-white">Url</label><br/>
+                                 <label className="text-sm dark:text-white">Url</label><br/>
                                  <input 
                                     name="url" 
                                     type="text" 
-                                    className="border rounded-md w-full p-2"
+                                    className="border rounded-md w-full py-1 px-2"
                                     onChange={(e) => setUrl(e.target.value)}
                                     />
                              </div>
-                             <div className="my-3">
-                                 <label className="text-md dark:text-white">Domain</label><br/>
-                                 <input 
-                                    name="domain" 
-                                    type="text" 
-                                    className="border rounded-md w-full p-2"
-                                    onChange={(e) => setDomain(e.target.value)}
-                                    />
+
+                             <div className="grid grid-cols-5 gap-4">
+                                  <div className="py-3">
+                                       <h3 className="font-bold text-md">Report Registrar</h3>
+
+                                       <div className="my-3">
+                                          <label className="text-sm dark:text-white text-light">reported</label><br/>
+                                          <input 
+                                             name="registrar_reported" 
+                                             type="datetime-local"
+                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             onChange={(e) => setRegistrarReported(e.target.value)}
+                                             placeholder="" 
+                                             />
+                                       </div>
+                                       <div className="my-3">
+                                          <label className="text-sm dark:text-white text-light">resolved</label><br/>
+                                          <input 
+                                             name="registrar_resolved" 
+                                             type="datetime-local"
+                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             placeholder=""
+                                             onChange={(e) => setRegistrarResolved(e.target.value)}
+                                             />
+                                       </div>
+                                  </div>
+
+                                  <div className="py-3">
+                                       <h3 className="font-bold text-md">Safe Browsing</h3>
+
+                                       <div className="my-3">
+                                          <label className="text-sm dark:text-white text-light">reported</label><br/>
+                                          <input 
+                                             name="safebrowsing_reported" 
+                                             type="datetime-local"
+                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             placeholder=""
+                                             onChange={(e) => setSafebrowsingReported(e.target.value)}
+                                             />
+                                       </div>
+                                       <div className="my-3">
+                                          <label className="text-sm dark:text-white text-light">resolved</label><br/>
+                                          <input 
+                                             name="safebrowsing_resolved" 
+                                             type="datetime-local"
+                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             placeholder=""
+                                             onChange={(e) => setSafebrowsingResolved(e.target.value)}
+                                             />
+                                       </div>
+                                  </div>
+
+                                  <div className="py-3">
+                                       <h3 className="font-bold text-md">Takedown</h3>
+
+                                       <div className="my-3">
+                                          <label className="text-sm dark:text-white text-light">reported</label><br/>
+                                          <input 
+                                             name="takedown_reported" 
+                                             type="datetime-local"
+                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             placeholder=""
+                                             onChange={(e) => setTakedownReported(e.target.value)}
+                                             />
+                                       </div>
+                                       <div className="my-3">
+                                          <label className="text-sm dark:text-white text-light">resolved</label><br/>
+                                          <input 
+                                             name="takedown_resolved" 
+                                             type="datetime-local"
+                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             placeholder=""
+                                             onChange={(e) => setTakedownResolved(e.target.value)}
+                                             />
+                                       </div>
+                                  </div>
+
+                                  <div className="py-3">
+                                       <h3 className="font-bold text-md">Ddos</h3>
+
+                                       <div className="my-3">
+                                          <label className="text-sm dark:text-white text-light">reported</label><br/>
+                                          <input 
+                                             name="ddos_reported" 
+                                             type="datetime-local"
+                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             placeholder=""
+                                             onChange={(e) => setDdosReported(e.target.value)}
+                                             />
+                                       </div>
+                                       <div className="my-3">
+                                          <label className="text-sm dark:text-white text-light">resolved</label><br/>
+                                          <input 
+                                             name="ddos_resolved" 
+                                             type="datetime-local"
+                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             placeholder=""
+                                             onChange={(e) => setDdosResolved(e.target.value)}
+                                             />
+                                       </div>
+                                  </div>
+
+                                  <div className="py-3">
+                                       <h3 className="font-bold text-md">Komdigi</h3>
+
+                                       <div className="my-3">
+                                          <label className="text-sm dark:text-white text-light">reported</label><br/>
+                                          <input 
+                                             name="komdigi_reported" 
+                                             type="datetime-local"
+                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             placeholder=""
+                                             onChange={(e) => setKomdigiReported(e.target.value)}
+                                             />
+                                       </div>
+                                       <div className="my-3">
+                                          <label className="text-sm dark:text-white text-light">resolved</label><br/>
+                                          <input 
+                                             name="komdigi_resolved" 
+                                             type="datetime-local"
+                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             placeholder=""
+                                             onChange={(e) => setKomdigiResolved(e.target.value)}
+                                             />
+                                       </div>
+                                  </div>
                              </div>
-                             <div className="my-3">
-                                 <label className="text-md dark:text-white">Created At</label><br/>
-                                 <input 
-                                    name="created_at" 
-                                    type="datetime-local"
-                                    className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
-                                    onChange={(e) => setCreatedAt(e.target.value)}
-                                    />
-                             </div>
-                             <div className="my-3">
-                                 <label className="text-md dark:text-white">Updated At</label><br/>
-                                 <input 
-                                    name="updated_at" 
-                                    type="datetime-local"
-                                    className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
-                                    onChange={(e) => setUpdateAt(e.target.value)}
-                                    />
-                             </div>
-                             <div className="my-3">
-                                 <label className="text-md dark:text-white">Dos Time</label><br/>
-                                 <input 
-                                    name="dos_time" 
-                                    type="datetime-local"
-                                    className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
-                                    onChange={(e) => setDosTime(e.target.value)}
-                                    />
-                             </div>
+                            
                              <button
                                 type="submit"
                                 disabled={isLoading}

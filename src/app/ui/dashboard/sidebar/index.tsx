@@ -6,7 +6,7 @@ import logo from "../../../../../public/logo-soc.png"
 
 export default function Sidebar(){
     return (
-        <div className="w-3xs bg-white dark:bg-slate-900">
+        <div className="w-3xs bg-white dark:bg-slate-900 h-screen">
             <div className="py-5">
                 <Image
                 src={logo}
@@ -36,7 +36,7 @@ export default function Sidebar(){
                                 alt="Home Logo"
                                 className="mx-2"
                             />
-                           Input Data
+                           Data
                         </button>
                     </Link>
                 </div>
