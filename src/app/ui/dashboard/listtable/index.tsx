@@ -26,6 +26,7 @@ interface ListTableProps {
 }
 
 export default function ListTable({
+   index,
    phishing, 
    editDataById, 
    deleteDataById  
@@ -44,38 +45,83 @@ export default function ListTable({
         const formatted = `${dd}/${mm}/${yyyy} ${hh}:${min}`;
         return formatted
     }
-    
-    return (
-        <tr key={phishing.id} className="border-b-1 border-gray-500 gap-4">
-             <td className="py-2 dark:text-white text-sm font-normal w-full">{phishing.url}</td>
-             <td className="py-2 text-gray-500 text-sm">{phishing.registrar_reported ? formatTime(phishing.registrar_reported) : ""}</td>
-             <td className="py-2 text-gray-500 text-sm">{phishing.registrar_resolved ? formatTime(phishing.registrar_resolved) : ""}</td>
-             <td className="py-2 text-gray-500 text-sm">{phishing.safebrowsing_reported ? formatTime(phishing.safebrowsing_reported): ""}</td>
-             <td className="py-2 text-gray-500 text-sm">{phishing.safebrowsing_resolved ? formatTime(phishing.safebrowsing_resolved): ""}</td>
-             <td className="py-2 text-gray-500 text-sm">{phishing.takedown_reported ? formatTime(phishing.takedown_reported): ""}</td>
-             <td className="py-2 text-gray-500 text-sm">{phishing.takedown_resolved ? formatTime(phishing.takedown_resolved): ""}</td>
-             <td className="py-2 text-gray-500 text-sm">{phishing.ddos_reported ? formatTime(phishing.ddos_reported): ""}</td>
-             <td className="py-2 text-gray-500 text-sm">{phishing.ddos_resolved ? formatTime(phishing.ddos_resolved): ""}</td>
-             <td className="py-2 text-gray-500 text-sm">{phishing.komdigi_reported ? formatTime(phishing.komdigi_reported): ""}</td>
-             <td className="py-2 text-gray-500 text-sm">{phishing.komdigi_resolved ? formatTime(phishing.komdigi_resolved): ""}</td>
-             <td className="py-2 text-gray-500 text-sm flex items-center justify-center flex-wrap">
-                <Image 
-                   src={edit} 
-                   width={15} 
-                   height={15} 
-                   alt="edit file"
-                   className="m-auto object-center"
-                   onClick={()=>editDataById(phishing.id)}
-                   />
-                <Image 
-                   src={trash} 
-                   width={15} 
-                   height={15} 
-                   alt="delete file"
-                   className="m-auto object-center"
-                   onClick={()=> deleteDataById(phishing.id)}
-                   />
-            </td>
-        </tr> 
-    )
+
+    if((index+1)%2==1) {
+        return (
+            <tr key={phishing.id} className="border-b-1 border-gray-500 gap-4">
+                 <td className="py-2 dark:text-white text-sm font-normal w-50 border-1 border-gray-500">{phishing.url.substring(0,40)}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">{phishing.registrar_reported ? formatTime(phishing.registrar_reported) : ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">{phishing.registrar_resolved ? formatTime(phishing.registrar_resolved) : ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">{phishing.safebrowsing_reported ? formatTime(phishing.safebrowsing_reported): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">{phishing.safebrowsing_resolved ? formatTime(phishing.safebrowsing_resolved): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">{phishing.takedown_reported ? formatTime(phishing.takedown_reported): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">{phishing.takedown_resolved ? formatTime(phishing.takedown_resolved): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">{phishing.ddos_reported ? formatTime(phishing.ddos_reported): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">{phishing.ddos_resolved ? formatTime(phishing.ddos_resolved): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">{phishing.komdigi_reported ? formatTime(phishing.komdigi_reported): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">{phishing.komdigi_resolved ? formatTime(phishing.komdigi_resolved): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500">
+                    <div className="relative my-auto m-full items-center justify-center flex-wrap">
+                        <button onClick={()=>editDataById(phishing.id)}>
+                          <Image 
+                            src={edit} 
+                            width={15} 
+                            height={15} 
+                            alt="edit file"
+                            className="mx-1"
+                            />
+                        </button>
+                        <button onClick={()=> deleteDataById(phishing.id)}>
+                            <Image 
+                              src={trash} 
+                              width={15} 
+                              height={15} 
+                              alt="delete file"
+                              className="mx-1"
+                            />
+                        </button>
+                    </div>
+                </td>
+            </tr> 
+        ) 
+    } else {
+         return (
+
+            <tr key={phishing.id} className="border-b-1 border-gray-500 gap-4">
+                 <td className="py-2 dark:text-white text-sm font-normal w-50 border-1 border-gray-500 dark:bg-gray-800">{phishing.url.substring(0,40)}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">{phishing.registrar_reported ? formatTime(phishing.registrar_reported) : ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">{phishing.registrar_resolved ? formatTime(phishing.registrar_resolved) : ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">{phishing.safebrowsing_reported ? formatTime(phishing.safebrowsing_reported): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">{phishing.safebrowsing_resolved ? formatTime(phishing.safebrowsing_resolved): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">{phishing.takedown_reported ? formatTime(phishing.takedown_reported): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">{phishing.takedown_resolved ? formatTime(phishing.takedown_resolved): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">{phishing.ddos_reported ? formatTime(phishing.ddos_reported): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">{phishing.ddos_resolved ? formatTime(phishing.ddos_resolved): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">{phishing.komdigi_reported ? formatTime(phishing.komdigi_reported): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">{phishing.komdigi_resolved ? formatTime(phishing.komdigi_resolved): ""}</td>
+                 <td className="py-2 text-white text-sm border-1 border-gray-500 dark:bg-gray-800">
+                    <div className="relative my-auto m-full items-center justify-center flex-wrap">
+                        <button onClick={()=>editDataById(phishing.id)}>
+                          <Image 
+                            src={edit} 
+                            width={15} 
+                            height={15} 
+                            alt="edit file"
+                            className="mx-1"
+                            />
+                        </button>
+                        <button onClick={()=> deleteDataById(phishing.id)}>
+                            <Image 
+                              src={trash} 
+                              width={15} 
+                              height={15} 
+                              alt="delete file"
+                              className="mx-1"
+                            />
+                        </button>
+                    </div>
+                </td>
+            </tr> 
+        ) 
+    }
 }

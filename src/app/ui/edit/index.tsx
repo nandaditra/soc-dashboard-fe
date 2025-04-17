@@ -82,7 +82,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
     return (
       <div className="absolute rounded-md flex items-center justify-center top-0 h-screen w-screen">
         <div className="absolute bg-black opacity-50 h-screen w-screen"></div>
-        <div className="absolute bg-slate-900 w-6xl my-auto items-center justify-center block z-40 p-10 rounded-md">
+        <div className="absolute bg-slate-900 w-4/5 my-auto items-center justify-center block z-40 p-10 rounded-md">
           <h1 className="text-center font-bold text-xl text-white">Update Data</h1>
           <form onSubmit={updateDataById} className="mt-6">
                <div className="my-3">
@@ -105,7 +105,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                           <input 
                               name="registrar_reported" 
                               type="datetime-local"
-                              className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={registrar_reported}
                               onChange={(e) => setRegistrarReported(e.target.value)}
                               />
@@ -115,7 +115,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                           <input 
                               name="registrar_resolved" 
                               type="datetime-local"
-                              className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={registrar_resolved}
                               onChange={(e) => setRegistrarResolved(e.target.value)}
                               />
@@ -129,7 +129,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                           <input 
                               name="safebrowsing_reported" 
                               type="datetime-local"
-                              className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={safebrowsing_reported}
                               onChange={(e) => setSafebrowsingReported(e.target.value)}
                               />
@@ -139,7 +139,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                           <input 
                               name="safebrowsing_resolved" 
                               type="datetime-local"
-                              className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={safebrowsing_resolved}
                               onChange={(e) => setSafebrowsingResolved(e.target.value)}
                               />
@@ -154,7 +154,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                           <input 
                               name="takedown_reported" 
                               type="datetime-local"
-                              className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={takedown_reported}
                               onChange={(e) => setTakedownReported(e.target.value)}
                               />
@@ -164,7 +164,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                           <input 
                               name="takedown_resolved" 
                               type="datetime-local"
-                              className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={takedown_resolved}
                               onChange={(e) => setTakedownResolved(e.target.value)}
                               />
@@ -179,7 +179,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                           <input 
                               name="ddos_reported" 
                               type="datetime-local"
-                              className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={ddos_reported}
                               onChange={(e) => setDdosReported(e.target.value)}
                               />
@@ -189,7 +189,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                           <input 
                               name="ddos_resolved" 
                               type="datetime-local"
-                              className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={ddos_resolved}
                               onChange={(e) => setDdosResolved(e.target.value)}
                               />
@@ -204,7 +204,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                           <input 
                               name="komdigi_reported" 
                               type="datetime-local"
-                              className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={komdigi_reported}
                               onChange={(e) => setKomdigiReported(e.target.value)}
                               />
@@ -214,7 +214,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                           <input 
                               name="komdigi_resolved" 
                               type="datetime-local"
-                              className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={komdigi_resolved}
                               onChange={(e) => setKomdigiResolved(e.target.value)}
                               />
@@ -225,7 +225,10 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
               <button
                 type="button"
                 className="text-white px-6 py-2 border-1 rounded-full"
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setOpen(false);
+                  window.location.reload(); 
+                }}
               >
                 Cancel
               </button>

@@ -88,7 +88,7 @@ export default function Home() {
               <Sidebar />
               <div className="h-screen w-full block">
                   <div className="md:px-2 mt-4">
-                    <div className="md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">
+                    <div className="md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-gray-900">
                          <div className="flex">
                              <div className="mr-auto">
                                  <h1 className="text-black font-bold text-2xl mt-5 dark:text-white">Dashboard</h1>
@@ -99,7 +99,7 @@ export default function Home() {
                                     <input 
                                        name="search" 
                                        type="text"
-                                       className="focus:outline-none bg-none rounded-full border-none w-full px-3 text-white py-1"
+                                       className="focus:outline-none bg-none rounded-full border-none w-full px-3 text-white py-0 text-base"
                                        onChange={(e) => setSearch(e.target.value)}
                                      />
                                      <Image
@@ -153,7 +153,10 @@ export default function Home() {
             </div>
        </main>
 
-       <Edit isOpen={isOpen} phishingId={id}/>
+       <Edit 
+         isOpen={isOpen} 
+         phishingId={id}
+         />
     </div>
   );
 }

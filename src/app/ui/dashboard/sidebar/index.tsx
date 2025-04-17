@@ -9,11 +9,11 @@ export default function Sidebar(){
         <div className="w-3xs bg-white dark:bg-slate-900 h-screen">
             <div className="py-5">
                 <Image
-                src={logo}
-                width={50}
-                height={50}
-                alt="Logo SOC"
-                className="w-3/5 mx-auto"
+                    src={logo}
+                    width={50}
+                    height={50}
+                    alt="Logo SOC"
+                    className="w-3/5 mx-auto"
                 />
                    <div className="mt-4 text-sm">
                         <Link href={"/"}><button className="py-4 flex text-normal w-full focus:bg-blue-950 focus:text-white focus:font-bold focus:rounded-md text-left px-3 dark:text-white">
@@ -24,7 +24,7 @@ export default function Sidebar(){
                                 alt="Home Logo"
                                 className="mx-2"
                             />
-                            Home
+                            <span className="invisible lg:visible">Home</span>
                            </button>
                         </Link>
                     <Link href={"/add-link"}>
@@ -36,7 +36,7 @@ export default function Sidebar(){
                                 alt="Home Logo"
                                 className="mx-2"
                             />
-                           Data
+                           <span className="invisible lg:visible">Data</span>
                         </button>
                     </Link>
                 </div>

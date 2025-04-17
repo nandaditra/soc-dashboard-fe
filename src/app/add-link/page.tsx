@@ -62,12 +62,11 @@ export default function AddLink() {
    
     return (
         <div className="bg-gray-100 dark:bg-black">
-          <main className="">
              <div className="flex flex-column">
                <Sidebar />
                <div className="w-full">
                    <main className="md:px-4 mt-4">
-                      <div className="container mx-auto md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">
+                      <div className="mx-auto md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">
                          <h1 className="text-black font-bold text-2xl mt-3 dark:text-white">Add Link</h1>
                          <p className="text-slate-500">Add the phising link</p>
                          <form onSubmit={handleSubmit} className="mt-6">
@@ -220,7 +219,6 @@ export default function AddLink() {
                    </main>
               </div>
             </div>
-       </main>
     </div>
     )
 }
