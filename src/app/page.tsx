@@ -6,6 +6,7 @@ import Image from "next/image";
 import glass from "../../public/magnifying-glass-solid.svg"
 import Table from "./ui/dashboard/table";
 import Edit from "./ui/edit";
+import ButtonPage from "./ui/button/button-page";
 
 export default function Home() {
   const [page, setPage] = useState<number>(1);
@@ -92,7 +93,7 @@ export default function Home() {
                          <div className="flex">
                              <div className="mr-auto">
                                  <h1 className="text-black font-bold text-2xl mt-5 dark:text-white">Dashboard</h1>
-                                 <p className="text-slate-500">List all the phising link</p>
+                                 <p className="text-slate-500 text-xs">List all the phising link</p>
                              </div>
                              <form onSubmit={handleSearchByKeyword} className="ml-auto rounded-full w-100">
                                  <div className="flex mt-4 border border-1 border-white rounded-full w-full py-1">
@@ -125,7 +126,7 @@ export default function Home() {
                         </p>
 
                           <div className="flex gap-2">
-                          
+{/*                           
                             <button
                               onClick={() => setPage(page - 1)}
                               disabled={page === 1}
@@ -144,7 +145,9 @@ export default function Home() {
                               }`}
                             >
                               Next
-                            </button>
+                            </button> */}
+                            <ButtonPage page={page} totalPage={1} content={"Prev"} onPagination={setPage}/>
+                            <ButtonPage page={page} totalPage={totalPage} content={"Next"} onPagination={setPage}/>
                           </div>
                         </div>
                     </div>

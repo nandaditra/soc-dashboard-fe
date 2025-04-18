@@ -68,7 +68,7 @@ export default function AddLink() {
                    <main className="md:px-4 mt-4">
                       <div className="mx-auto md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">
                          <h1 className="text-black font-bold text-2xl mt-3 dark:text-white">Add Link</h1>
-                         <p className="text-slate-500">Add the phising link</p>
+                         <p className="text-slate-500">Add the phishing link</p>
                          <form onSubmit={handleSubmit} className="mt-6">
                              <div className="my-3">
                                  <label className="text-sm dark:text-white">Url</label><br/>
