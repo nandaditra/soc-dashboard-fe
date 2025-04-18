@@ -2,10 +2,14 @@
 
 import { FormEvent, useState } from "react"
 import Sidebar from "../ui/dashboard/sidebar"
+import Alert from "../ui/alert";
 
 export default function AddLink() {
     const [url, setUrl] = useState<string>("")
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [notification, setNotification] = useState<boolean>(false);
+    const [message, setMessage] = useState<string>("")
+    const [status, setStatus] = useState<boolean>(false)
     const [registrar_reported, setRegistrarReported] = useState<string>("");
     const [registrar_resolved, setRegistrarResolved] = useState<string>("");
     const [safebrowsing_reported, setSafebrowsingReported] = useState<string>("");
@@ -18,7 +22,7 @@ export default function AddLink() {
     const [komdigi_resolved, setKomdigiResolved] = useState<string>("");
     
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-         event.preventDefault()
+         event.preventDefault();
 
          const formData = {
           url,
@@ -42,9 +46,14 @@ export default function AddLink() {
  
         const data = await response.json();
          if (response.ok) {
-            alert('Data added successfully!');
+            setNotification(true);
+            setMessage("Data added successfully")
+            setStatus(true)
+            window.location.reload();
          } else {
-            alert(`Error: ${data.message}`);
+            setNotification(true);
+            setMessage(`${data.message}`)
+            setStatus(false)
          }
 
         setIsLoading(false);
@@ -61,7 +70,8 @@ export default function AddLink() {
     }
    
     return (
-        <div className="bg-gray-100 dark:bg-black">
+        <div className="bg-gray-100 dark:bg-black relative">
+             {notification ? <Alert status={status} message={message} onAlert={setNotification}/> : "" }
              <div className="flex flex-column">
                <Sidebar />
                <div className="w-full">

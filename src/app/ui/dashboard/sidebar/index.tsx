@@ -6,7 +6,7 @@ import logo from "../../../../../public/logo-soc.png"
 
 export default function Sidebar(){
     return (
-        <div className="w-3xs bg-white dark:bg-slate-900 h-screen">
+        <div className="w-[50px] md:w-3xs bg-white dark:bg-slate-900 h-screen">
             <div className="py-5">
                 <Image
                     src={logo}
@@ -24,7 +24,7 @@ export default function Sidebar(){
                                 alt="Home Logo"
                                 className="mx-2"
                             />
-                            <span className="invisible lg:visible">Home</span>
+                            <span className="invisible xl:visible">Home</span>
                            </button>
                         </Link>
                     <Link href={"/add-link"}>
@@ -36,7 +36,7 @@ export default function Sidebar(){
                                 alt="Home Logo"
                                 className="mx-2"
                             />
-                           <span className="invisible lg:visible">Add</span>
+                           <span className="invisible xl:visible">Add</span>
                         </button>
                     </Link>
                 </div>

@@ -7,18 +7,21 @@ import glass from "../../public/magnifying-glass-solid.svg"
 import Table from "./ui/dashboard/table";
 import Edit from "./ui/edit";
 import ButtonPage from "./ui/button/button-page";
+import Alert from "./ui/alert";
 
 export default function Home() {
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>("");
   const [items, setItems] = useState([])
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
   const [totalPage, setTotalPage] = useState<number>(0);
   const [totalItems, setTotalItems] = useState<number>(0);
   const [id, setId] = useState<string>("")
 
   useEffect(() => {
     async function getAllListData() {
+      setLoading(true);
       try {
         const response = await fetch(`http://localhost:5000/api/phishing?page=${page}&limit=10`);
         if (!response.ok) throw new Error("Failed get list data");
@@ -27,6 +30,7 @@ export default function Home() {
         setItems(data.data);
         setTotalPage(data.pagination.totalPages);
         setTotalItems(data.pagination.totalItems);
+        setLoading(false)
       } catch (error) {
         console.log("Get Data error :", error);
       }
@@ -39,7 +43,7 @@ export default function Home() {
   async function handleSearchByKeyword(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setPage(1);
-  
+    setLoading(true);
     try {
       const response = await fetch(`http://localhost:5000/api/search?keyword=${encodeURIComponent(search)}`);
       if (!response.ok) {
@@ -50,6 +54,7 @@ export default function Home() {
       setItems(data.data); 
       setTotalItems(data.data.length);
       setTotalPage(1); // since search results may not have paginated data
+      setLoading(false)
     } catch (error) {
       console.error("Search error:", error);
     }
@@ -115,7 +120,8 @@ export default function Home() {
                           </div>
                           <div className="w-full">
                            <Table 
-                             items={items} 
+                             items={items}
+                             onLoad={isLoading}
                              onDelete={deleteDataById}
                              onEdit={editDataById}
                            />
@@ -126,7 +132,7 @@ export default function Home() {
                         </p>
 
                           <div className="flex gap-2">
-{/*                           
+                          
                             <button
                               onClick={() => setPage(page - 1)}
                               disabled={page === 1}
@@ -145,9 +151,9 @@ export default function Home() {
                               }`}
                             >
                               Next
-                            </button> */}
-                            <ButtonPage page={page} totalPage={1} content={"Prev"} onPagination={setPage}/>
-                            <ButtonPage page={page} totalPage={totalPage} content={"Next"} onPagination={setPage}/>
+                            </button>
+                            {/* <ButtonPage page={page} totalPage={1} content={"Prev"} onPagination={setPage}/>
+                            <ButtonPage page={page} totalPage={totalPage} content={"Next"} onPagination={setPage}/> */}
                           </div>
                         </div>
                     </div>

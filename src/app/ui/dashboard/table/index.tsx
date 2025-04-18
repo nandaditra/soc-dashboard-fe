@@ -19,6 +19,7 @@ type ListPhising = {
 
 interface TableProps {
     items: ListPhising[],
+    onLoad:boolean;
     onDelete:(id:string) => void
     onEdit:(id:string) => void
 }

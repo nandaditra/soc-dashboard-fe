@@ -1,7 +1,7 @@
 interface DataSelProps {
     data: string,
     type: string,
-    isEven: boolean
+    isEven: boolean,
 }
 
 function formatTime(time:string) {
@@ -21,12 +21,12 @@ function formatTime(time:string) {
 export default function DataSel({
     data,
     type,
-    isEven
+    isEven,
 }:
 DataSelProps
 ) {
     return (
-        <td className={`py-2 dark:text-white text-sm border border-gray-500 
+        <td className={`py-2 dark:text-white text-sm border border-gray-500
             ${isEven ? "dark:bg-gray-800" : ""} 
             ${type === "url" ? "w-50 break-words max-w-xs" : ""}`}>
             {
