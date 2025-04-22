@@ -92,7 +92,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
           <h1 className="text-center font-bold text-xl text-white">Update Data</h1>
           <form onSubmit={updateDataById} className="mt-6">
                <div className="my-3">
-                  <label className="text-sm dark:text-white">Url</label><br/>
+                  <label className="text-sm text-white dark:text-white">Url</label><br/>
                   <input 
                     name="url" 
                     type="text" 
@@ -107,21 +107,21 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                         <h3 className="font-bold text-md">Report Registrar</h3>
 
                         <div className="my-3">
-                          <label className="text-sm dark:text-white text-light">reported</label><br/>
+                          <label className="text-sm text-white text-white dark:text-white text-light">reported</label><br/>
                           <input 
                               name="registrar_reported" 
                               type="datetime-local"
-                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full [color-scheme:dark] py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={registrar_reported}
                               onChange={(e) => setRegistrarReported(e.target.value)}
                               />
                         </div>
                         <div className="my-3">
-                          <label className="text-sm dark:text-white text-light">resolved</label><br/>
+                          <label className="text-sm text-white dark:text-white text-light">resolved</label><br/>
                           <input 
                               name="registrar_resolved" 
                               type="datetime-local"
-                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full [color-scheme:dark] py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={registrar_resolved}
                               onChange={(e) => setRegistrarResolved(e.target.value)}
                               />
@@ -131,21 +131,21 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                   <div className="py-3">
                         <h3 className="font-bold text-md">Safe Browsing</h3>
                         <div className="my-3">
-                          <label className="text-sm dark:text-white text-light">reported</label><br/>
+                          <label className="text-sm text-white dark:text-white text-light">reported</label><br/>
                           <input 
                               name="safebrowsing_reported" 
                               type="datetime-local"
-                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full [color-scheme:dark] py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={safebrowsing_reported}
                               onChange={(e) => setSafebrowsingReported(e.target.value)}
                               />
                         </div>
                         <div className="my-3">
-                          <label className="text-sm dark:text-white text-light">resolved</label><br/>
+                          <label className="text-sm text-white dark:text-white text-light">resolved</label><br/>
                           <input 
                               name="safebrowsing_resolved" 
                               type="datetime-local"
-                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full [color-scheme:dark] py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={safebrowsing_resolved}
                               onChange={(e) => setSafebrowsingResolved(e.target.value)}
                               />
@@ -156,21 +156,21 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                         <h3 className="font-bold text-md">Takedown</h3>
 
                         <div className="my-3">
-                          <label className="text-sm dark:text-white text-light">reported</label><br/>
+                          <label className="text-sm text-white dark:text-white text-light">reported</label><br/>
                           <input 
                               name="takedown_reported" 
                               type="datetime-local"
-                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full [color-scheme:dark] py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={takedown_reported}
                               onChange={(e) => setTakedownReported(e.target.value)}
                               />
                         </div>
                         <div className="my-3">
-                          <label className="text-sm dark:text-white text-light">resolved</label><br/>
+                          <label className="text-sm text-white dark:text-white text-light">resolved</label><br/>
                           <input 
                               name="takedown_resolved" 
                               type="datetime-local"
-                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full [color-scheme:dark]  py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={takedown_resolved}
                               onChange={(e) => setTakedownResolved(e.target.value)}
                               />
@@ -181,21 +181,21 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                         <h3 className="font-bold text-md">Ddos</h3>
 
                         <div className="my-3">
-                          <label className="text-sm dark:text-white text-light">reported</label><br/>
+                          <label className="text-sm text-white dark:text-white text-light">reported</label><br/>
                           <input 
                               name="ddos_reported" 
                               type="datetime-local"
-                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full [color-scheme:dark] py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={ddos_reported}
                               onChange={(e) => setDdosReported(e.target.value)}
                               />
                         </div>
                         <div className="my-3">
-                          <label className="text-sm dark:text-white text-light">resolved</label><br/>
+                          <label className="text-sm text-white dark:text-white text-light">resolved</label><br/>
                           <input 
                               name="ddos_resolved" 
                               type="datetime-local"
-                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full [color-scheme:dark] py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={ddos_resolved}
                               onChange={(e) => setDdosResolved(e.target.value)}
                               />
@@ -206,21 +206,21 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                         <h3 className="font-bold text-md">Komdigi</h3>
 
                         <div className="my-3">
-                          <label className="text-sm dark:text-white text-light">reported</label><br/>
+                          <label className="text-sm text-white dark:text-white text-light">reported</label><br/>
                           <input 
                               name="komdigi_reported" 
                               type="datetime-local"
-                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full [color-scheme:dark] py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={komdigi_reported}
                               onChange={(e) => setKomdigiReported(e.target.value)}
                               />
                         </div>
                         <div className="my-3">
-                          <label className="text-sm dark:text-white text-light">resolved</label><br/>
+                          <label className="text-sm text-white dark:text-white text-light">resolved</label><br/>
                           <input 
                               name="komdigi_resolved" 
                               type="datetime-local"
-                              className="border rounded-md w-full py-1 px-2 text-white dark:[color-scheme:dark]"
+                              className="border rounded-md w-full [color-scheme:dark] py-1 px-2 text-white dark:[color-scheme:dark]"
                               value={komdigi_resolved}
                               onChange={(e) => setKomdigiResolved(e.target.value)}
                               />

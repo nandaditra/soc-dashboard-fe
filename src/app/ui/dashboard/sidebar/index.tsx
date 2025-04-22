@@ -6,7 +6,7 @@ import logo from "../../../../../public/logo-soc.png"
 
 export default function Sidebar(){
     return (
-        <div className="w-[50px] md:w-3xs bg-white dark:bg-slate-900 h-screen">
+        <div className="w-[50px] md:w-3xs bg-slate-900 dark:bg-slate-900 h-screen">
             <div className="py-5">
                 <Image
                     src={logo}
@@ -16,7 +16,7 @@ export default function Sidebar(){
                     className="w-3/5 mx-auto"
                 />
                    <div className="mt-4 text-sm">
-                        <Link href={"/"}><button className="py-4 flex text-normal w-full focus:bg-blue-950 focus:text-white focus:font-bold focus:rounded-md text-left px-3 dark:text-white">
+                        <Link href={"/"}><button className="py-4 flex text-normal w-full focus:bg-blue-950 focus:text-white focus:font-bold focus:rounded-md text-left px-3 text-white">
                            <Image 
                                 src={home}
                                 width={20}
@@ -28,7 +28,7 @@ export default function Sidebar(){
                            </button>
                         </Link>
                     <Link href={"/add-link"}>
-                        <button className="py-4 flex text-normal w-full focus:bg-blue-950 focus:text-white focus:font-bold focus:rounded-md text-left px-3 dark:text-white">
+                        <button className="py-4 flex text-normal w-full focus:bg-blue-950 focus:text-white focus:font-bold focus:rounded-md text-left px-3 text-white dark:text-white">
                            <Image 
                                 src={plus}
                                 width={20}

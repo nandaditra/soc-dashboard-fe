@@ -93,7 +93,7 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-gray-100 dark:bg-black relative">
+    <div className="bg-gray-100 bg-black dark:bg-black relative">
       {notification ? <Alert status={status} message={message} onAlert={setNotification}/> : "" }
        <main className="">
             <div className="flex flex-row">

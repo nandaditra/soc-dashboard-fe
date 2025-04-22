@@ -31,7 +31,7 @@ export default function Table(
         <div className="overflow-auto max-h-[600px] scrollbarr">
             <table className="min-w-[1200px] mt-4 text-center border-collapse w-full">
                 <thead className="text-xs sticky top-0 rounded-t-lg">
-                    <tr className="dark:bg-gray-800">
+                    <tr className="bg-gray-800 dark:bg-gray-800">
                         <TableHead row={2} width={"w-2/5"} col={1} content={"Phishing URL"}/>
                         <TableHead row={1} width={""} col={2} content={"Report Registrar"}/>
                         <TableHead row={1} width={""} col={2} content={"Safebrowsing"}/>
@@ -40,7 +40,7 @@ export default function Table(
                         <TableHead row={1} width={""} col={2} content={"Komdigi"}/>
                         <TableHead row={2} width={""} col={2} content={"Action"}/>
                     </tr>
-                    <tr className="dark:bg-gray-800">
+                    <tr className="bg-gray-800 dark:bg-gray-800">
                         <TableHead row={1} width={""} col={1} content={"Reported"}/>
                         <TableHead row={1} width={""} col={1} content={"Resolved"}/>
                         <TableHead row={1} width={""} col={1} content={"Reported"}/>
