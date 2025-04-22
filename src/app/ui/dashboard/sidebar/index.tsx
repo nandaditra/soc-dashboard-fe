@@ -10,8 +10,8 @@ export default function Sidebar(){
             <div className="py-5">
                 <Image
                     src={logo}
-                    width={50}
-                    height={50}
+                    width={100}
+                    height={100}
                     alt="Logo SOC"
                     className="w-3/5 mx-auto"
                 />
