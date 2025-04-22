@@ -29,7 +29,7 @@ export default function TableRow(
 ) {
     return (
         <tr key={phishing.id} className="border-b-1 border-gray-500 gap-4">
-                 <DataSel data={phishing.url.substring(0,40)} type={"url"} isEven={isEven} />
+                 <DataSel data={phishing.url} type={"url"} isEven={isEven} />
                  <DataSel data={phishing.registrar_reported} type="time" isEven={isEven}/>
                  <DataSel data={phishing.registrar_resolved} type="time" isEven={isEven}/>
                  <DataSel data={phishing.safebrowsing_reported} type="time" isEven={isEven}/>

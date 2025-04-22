@@ -29,7 +29,7 @@ export default function Table(
 ){
     return (
         <div className="overflow-auto max-h-[600px] scrollbarr">
-            <table className="min-w-[1200px] mt-4 table-auto text-center border-collapse w-full">
+            <table className="min-w-[1200px] mt-4 text-center border-collapse w-full">
                 <thead className="text-xs sticky top-0 rounded-t-lg">
                     <tr className="dark:bg-gray-800">
                         <TableHead row={2} width={"w-2/5"} col={1} content={"Phishing URL"}/>

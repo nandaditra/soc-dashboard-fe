@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
+import Alert from "../alert";
 
 interface EditProps {
   isOpen: boolean;
@@ -8,6 +9,9 @@ interface EditProps {
 export default function Edit({ isOpen, phishingId }: EditProps) {
   const [open, setOpen] = useState<boolean>(false);
   const [url, setUrl] = useState<string>("");
+  const [notification, setNotification] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>("")
+  const [status, setStatus] = useState<boolean>(false)
   const [registrar_reported, setRegistrarReported] = useState<string>("");
   const [registrar_resolved, setRegistrarResolved] = useState<string>("");
   const [safebrowsing_reported, setSafebrowsingReported] = useState<string>("");
@@ -70,7 +74,8 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
       });
 
       const result = await res.json();
-      alert(result.message);
+      setMessage(result.message);
+      setStatus(true)
       window.location.reload()
       setOpen(false);
     } catch (error) {
@@ -81,6 +86,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
   if (open && isOpen) {
     return (
       <div className="absolute flex items-center justify-center top-0 bottom-0 left-0 right-0">
+        {notification ? <Alert status={status} message={message} onAlert={setNotification}/> : "" }
         <div className="absolute bg-black opacity-50 h-screen w-screen"></div>
         <div className="absolute bg-slate-900 w-6xl my-auto mx-auto items-center z-40 p-10 rounded-md">
           <h1 className="text-center font-bold text-xl text-white">Update Data</h1>
@@ -96,7 +102,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                     />
               </div>
 
-              <div className="grid grid-cols-5 gap-4">
+              <div className="grid md:grid-cols-5 gap-4">
                   <div className="py-3">
                         <h3 className="font-bold text-md">Report Registrar</h3>
 

@@ -90,10 +90,10 @@ export default function Home() {
   return (
     <div className="bg-gray-100 dark:bg-black relative">
        <main className="">
-            <div className="flex flex-column">
+            <div className="flex flex-row">
               <Sidebar />
               <div className="h-screen w-full block">
-                  <div className="md:px-2 mt-4">
+                  <div className="md:px-2 mt-4 flex-1">
                     <div className="md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-gray-900">
                          <div className="flex">
                              <div className="mr-auto">
@@ -152,8 +152,6 @@ export default function Home() {
                             >
                               Next
                             </button>
-                            {/* <ButtonPage page={page} totalPage={1} content={"Prev"} onPagination={setPage}/>
-                            <ButtonPage page={page} totalPage={totalPage} content={"Next"} onPagination={setPage}/> */}
                           </div>
                         </div>
                     </div>
