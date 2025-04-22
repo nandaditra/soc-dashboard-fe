@@ -26,7 +26,7 @@ export default function DataSel({
 DataSelProps
 ) {
     return (
-        <td className={`py-2 text-white text-sm border border-gray-500
+        <td className={`py-2 text-white text-sm border border-gray-500 px-1
             ${isEven ? "bg-gray-800" : ""} 
             ${type === "url" ? "w-50 break-words max-w-xs" : ""}`}>
             {

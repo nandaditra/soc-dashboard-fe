@@ -88,7 +88,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
       <div className="absolute flex items-center justify-center top-0 bottom-0 left-0 right-0">
         {notification ? <Alert status={status} message={message} onAlert={setNotification}/> : "" }
         <div className="absolute bg-black opacity-50 h-screen w-screen"></div>
-        <div className="absolute bg-slate-900 w-6xl my-auto mx-auto items-center z-40 p-10 rounded-md">
+        <div className="absolute bg-gray-900 w-6xl my-auto mx-auto items-center z-40 p-10 rounded-md">
           <h1 className="text-center font-bold text-xl text-white">Update Data</h1>
           <form onSubmit={updateDataById} className="mt-6">
                <div className="my-3">

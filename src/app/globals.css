@@ -8,6 +8,36 @@
   --foreground: #171717;
   --color-slate-900:#0f172b;
   --color-gray-900:#101828;
+  --color-gray-800:#1e2939;
+  --color-slate-950: #020618;
+  --color-gray-500: #6a7282;
+  --color-red-100: #ffe2e2;
+  --color-red-400: #ff6467;
+  --color-red-700: #c10007;
+  --color-green-100: #dcfce7;
+  --color-green-400: #05df72;
+  --color-green-700: #008236;
+  --color-green-900: #0d542b;
+  --color-sky-600: #0084d1;
+  --color-sky-950: #052f4a;
+  --color-blue-950: #162456;
+  --spacing: .25rem;
+    --container-3xs: 16rem;
+    --container-xs: 20rem;
+    --container-6xl: 72rem;
+    --text-xs: .75rem;
+    --text-xs--line-height: calc(1 / .75);
+    --text-sm: .875rem;
+    --text-sm--line-height: calc(1.25 / .875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --font-weight-bold: 700;
+    --radius-md: .375rem;
+    --radius-lg: .5rem;
 }
 
 @theme inline {
