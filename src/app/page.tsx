@@ -6,12 +6,14 @@ import Image from "next/image";
 import glass from "../../public/magnifying-glass-solid.svg"
 import Table from "./ui/dashboard/table";
 import Edit from "./ui/edit";
-import ButtonPage from "./ui/button/button-page";
 import Alert from "./ui/alert";
 
 export default function Home() {
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>("");
+  const [notification, setNotification] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>("")
+  const [status, setStatus] = useState<boolean>(false)
   const [items, setItems] = useState([])
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isLoading, setLoading] = useState<boolean>(false);
@@ -78,17 +80,21 @@ export default function Home() {
       if (!response.ok) {
         throw new Error("Failed to delete data.");
       }
-
-      alert("Data deleted successfully!");
+      setNotification(true);
+      setMessage("Data deleted successfully!")
+      setStatus(true);
       window.location.reload();
     } catch (error) {
       console.error("Error deleting data:", error);
-      alert("Failed to delete data.");
+      setNotification(true);
+      setMessage("Failed to delete data.")
+      setStatus(false);
     }
   }
 
   return (
     <div className="bg-gray-100 dark:bg-black relative">
+      {notification ? <Alert status={status} message={message} onAlert={setNotification}/> : "" }
        <main className="">
             <div className="flex flex-row">
               <Sidebar />
