@@ -100,7 +100,7 @@ export default function Home() {
               <Sidebar />
               <div className="h-screen w-full block">
                   <div className="md:px-2 mt-4 flex-1">
-                    <div className="md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-gray-900">
+                    <div className="md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-gray-900 dark:bg-gray-900">
                          <div className="flex">
                              <div className="mr-auto">
                                  <h1 className="text-black font-bold text-2xl mt-5 dark:text-white">Dashboard</h1>
