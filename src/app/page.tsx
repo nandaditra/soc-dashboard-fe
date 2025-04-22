@@ -93,7 +93,7 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-gray-100 bg-gray-900 dark:bg-black relative">
+    <div className="bg-black dark:bg-black relative">
       {notification ? <Alert status={status} message={message} onAlert={setNotification}/> : "" }
        <main className="">
             <div className="flex flex-row">
@@ -103,7 +103,7 @@ export default function Home() {
                     <div className="md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-gray-900 dark:bg-gray-900">
                          <div className="flex">
                              <div className="mr-auto">
-                                 <h1 className="text-black font-bold text-2xl mt-5 dark:text-white">Dashboard</h1>
+                                 <h1 className="text-black font-bold text-2xl mt-5 text-white dark:text-white">Dashboard</h1>
                                  <p className="text-slate-500 text-xs">List all the phising link</p>
                              </div>
                              <form onSubmit={handleSearchByKeyword} className="ml-auto rounded-full w-100">

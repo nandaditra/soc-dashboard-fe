@@ -40,7 +40,7 @@ export default function TableRow(
                  <DataSel data={phishing.ddos_resolved } type="time" isEven={isEven}/>
                  <DataSel data={phishing.komdigi_reported } type="time" isEven={isEven}/>
                  <DataSel data={phishing.komdigi_resolved} type="time" isEven={isEven}/>
-                 <td className="py-2 dark:text-white text-sm border-1 border-gray-500 bg-gray-800 text-white dark:bg-gray-800">
+                 <td className={`py-2 dark:text-white text-sm border-1 border-gray-500 bg-gray-800 text-white ${isEven ? 'bg-gray-800': ''}`}>
                     <div className="relative my-auto m-full items-center justify-center flex-wrap">
                         <ButtonAction id={phishing.id} type="edit" onOperation={editDataById}/>
                         <ButtonAction id={phishing.id} type="delete" onOperation={deleteDataById}/>

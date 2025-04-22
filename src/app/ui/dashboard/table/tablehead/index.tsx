@@ -18,7 +18,7 @@ export default function TableHead(
         <th 
            rowSpan={row ? row: 1 }
            colSpan={col ? col: 1 }
-           className={`px-4 py-2 border-1 border-gray-500 
+           className={`px-4 py-2 border-1 border-gray-500 text-white
             ${width ? width : ""}`
         }>
             {content}

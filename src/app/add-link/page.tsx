@@ -70,29 +70,29 @@ export default function AddLink() {
     }
    
     return (
-        <div className="bg-gray-100 dark:bg-black relative">
+        <div className="bg-black dark:bg-black relative">
              {notification ? <Alert status={status} message={message} onAlert={setNotification}/> : "" }
              <div className="flex flex-row">
                <Sidebar />
                <div className="w-full mx-auto">
                    <main className="px-2 md:px-4 mt-4">
-                      <div className="mx-auto px-4 md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-white dark:bg-slate-900">
-                         <h1 className="text-black font-bold text-2xl mt-3 dark:text-white">Add Link</h1>
+                      <div className="mx-auto px-4 md:px-8 pt-4 md:pb-16 rounded-md shadow-md bg-slate-900 dark:bg-slate-900">
+                         <h1 className="text-black font-bold text-2xl mt-3 text-white dark:text-white">Add Link</h1>
                          <p className="text-slate-500">Add the phishing link</p>
                          <form onSubmit={handleSubmit} className="mt-6">
                              <div className="my-3">
-                                 <label className="text-sm dark:text-white">Url</label><br/>
+                                 <label className="text-sm text-white dark:text-white">Url</label><br/>
                                  <input 
                                     name="url" 
                                     type="text" 
-                                    className="border rounded-md w-full py-1 px-2"
+                                    className="border rounded-md w-full py-1 px-2 text-white"
                                     onChange={(e) => setUrl(e.target.value)}
                                     />
                              </div>
 
                              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                                   <div className="py-3">
-                                       <h3 className="font-bold text-md">Report Registrar</h3>
+                                       <h3 className="font-bold text-md text-white">Report Registrar</h3>
 
                                        <div className="my-3">
                                           <label className="text-sm dark:text-white text-light">reported</label><br/>
@@ -117,7 +117,7 @@ export default function AddLink() {
                                   </div>
 
                                   <div className="py-3">
-                                       <h3 className="font-bold text-md">Safe Browsing</h3>
+                                       <h3 className="font-bold text-md text-white">Safe Browsing</h3>
 
                                        <div className="my-3">
                                           <label className="text-sm dark:text-white text-light">reported</label><br/>
@@ -142,7 +142,7 @@ export default function AddLink() {
                                   </div>
 
                                   <div className="py-3">
-                                       <h3 className="font-bold text-md">Takedown</h3>
+                                       <h3 className="font-bold text-md text-white">Takedown</h3>
 
                                        <div className="my-3">
                                           <label className="text-sm dark:text-white text-light">reported</label><br/>
@@ -167,7 +167,7 @@ export default function AddLink() {
                                   </div>
 
                                   <div className="py-3">
-                                       <h3 className="font-bold text-md">Ddos</h3>
+                                       <h3 className="font-bold text-md text-white">Ddos</h3>
 
                                        <div className="my-3">
                                           <label className="text-sm dark:text-white text-light">reported</label><br/>
@@ -192,7 +192,7 @@ export default function AddLink() {
                                   </div>
 
                                   <div className="py-3">
-                                       <h3 className="font-bold text-md">Komdigi</h3>
+                                       <h3 className="font-bold text-md text-white">Komdigi</h3>
 
                                        <div className="my-3">
                                           <label className="text-sm dark:text-white text-light">reported</label><br/>
