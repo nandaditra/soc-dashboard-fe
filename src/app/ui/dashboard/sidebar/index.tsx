@@ -6,7 +6,7 @@ import logo from "../../../../../public/logo-soc.png"
 
 export default function Sidebar(){
     return (
-        <div className="w-[50px] md:w-3xs bg-slate-900 dark:bg-slate-900 h-screen">
+        <div className="w-[50px] md:w-3xs bg-slate-900 h-screen">
             <div className="py-5">
                 <Image
                     src={logo}
