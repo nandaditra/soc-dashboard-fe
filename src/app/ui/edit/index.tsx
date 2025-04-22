@@ -96,7 +96,7 @@ export default function Edit({ isOpen, phishingId }: EditProps) {
                   <input 
                     name="url" 
                     type="text" 
-                    className="border rounded-md w-full py-1 px-2"
+                    className="border rounded-md w-full py-1 px-2 text-white"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     />
