@@ -99,7 +99,7 @@ export default function AddLink() {
                                           <input 
                                              name="registrar_reported" 
                                              type="datetime-local"
-                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             className="border rounded-md w-full p-2 text-white [color-scheme:dark] dark:[color-scheme:dark]"
                                              onChange={(e) => setRegistrarReported(e.target.value)}
                                              placeholder="" 
                                              />
@@ -109,7 +109,7 @@ export default function AddLink() {
                                           <input 
                                              name="registrar_resolved" 
                                              type="datetime-local"
-                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             className="border rounded-md w-full p-2 text-white [color-scheme:dark] dark:[color-scheme:dark]"
                                              placeholder=""
                                              onChange={(e) => setRegistrarResolved(e.target.value)}
                                              />
@@ -124,7 +124,7 @@ export default function AddLink() {
                                           <input 
                                              name="safebrowsing_reported" 
                                              type="datetime-local"
-                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             className="border rounded-md w-full dark:[color-scheme:dark] p-2 text-white dark:[color-scheme:dark]"
                                              placeholder=""
                                              onChange={(e) => setSafebrowsingReported(e.target.value)}
                                              />
@@ -134,7 +134,7 @@ export default function AddLink() {
                                           <input 
                                              name="safebrowsing_resolved" 
                                              type="datetime-local"
-                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             className="border rounded-md w-full dark:[color-scheme:dark] p-2 text-white dark:[color-scheme:dark]"
                                              placeholder=""
                                              onChange={(e) => setSafebrowsingResolved(e.target.value)}
                                              />
@@ -149,7 +149,7 @@ export default function AddLink() {
                                           <input 
                                              name="takedown_reported" 
                                              type="datetime-local"
-                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             className="border rounded-md w-full dark:[color-scheme:dark] p-2 text-white dark:[color-scheme:dark]"
                                              placeholder=""
                                              onChange={(e) => setTakedownReported(e.target.value)}
                                              />
@@ -159,7 +159,7 @@ export default function AddLink() {
                                           <input 
                                              name="takedown_resolved" 
                                              type="datetime-local"
-                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             className="border rounded-md w-full dark:[color-scheme:dark] p-2 text-white dark:[color-scheme:dark]"
                                              placeholder=""
                                              onChange={(e) => setTakedownResolved(e.target.value)}
                                              />
@@ -174,7 +174,7 @@ export default function AddLink() {
                                           <input 
                                              name="ddos_reported" 
                                              type="datetime-local"
-                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             className="border rounded-md w-full dark:[color-scheme:dark] p-2 text-white dark:[color-scheme:dark]"
                                              placeholder=""
                                              onChange={(e) => setDdosReported(e.target.value)}
                                              />
@@ -184,7 +184,7 @@ export default function AddLink() {
                                           <input 
                                              name="ddos_resolved" 
                                              type="datetime-local"
-                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             className="border rounded-md w-full dark:[color-scheme:dark] p-2 text-white dark:[color-scheme:dark]"
                                              placeholder=""
                                              onChange={(e) => setDdosResolved(e.target.value)}
                                              />
@@ -199,7 +199,7 @@ export default function AddLink() {
                                           <input 
                                              name="komdigi_reported" 
                                              type="datetime-local"
-                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             className="border rounded-md w-full dark:[color-scheme:dark] p-2 text-white dark:[color-scheme:dark]"
                                              placeholder=""
                                              onChange={(e) => setKomdigiReported(e.target.value)}
                                              />
@@ -209,7 +209,7 @@ export default function AddLink() {
                                           <input 
                                              name="komdigi_resolved" 
                                              type="datetime-local"
-                                             className="border rounded-md w-full p-2 text-white dark:[color-scheme:dark]"
+                                             className="border rounded-md w-full dark:[color-scheme:dark] p-2 text-white dark:[color-scheme:dark]"
                                              placeholder=""
                                              onChange={(e) => setKomdigiResolved(e.target.value)}
                                              />

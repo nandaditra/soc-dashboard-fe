@@ -28,5 +28,5 @@
     "tailwindcss": "^4.1.4",
     "typescript": "^5"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://10.133.89.131:5000/"
 }
